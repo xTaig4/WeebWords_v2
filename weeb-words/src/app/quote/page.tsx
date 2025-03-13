@@ -19,7 +19,7 @@ const QuotePage: React.FC = () => {
           <img
             src="https://i.pinimg.com/736x/80/27/9b/80279bc1d59ae2ffd1ff07aee8b87b04.jpg"
             alt="Sample"
-            className="h-160 rounded-4xl"
+            className="h-160 rounded-4xl mt-10"
           />
         </div>
       </div>

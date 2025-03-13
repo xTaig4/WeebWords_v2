@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CollapsibleSidebar from "./Layout/Collapsebar";
-import Sidebar from "./Layout/Sidebar";
+import MainLayout from "./Layout/MainLayout";
 import Search from "./Layout/Search";
 
 const geistSans = Geist({
@@ -30,8 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Sidebar />
-        
+        <MainLayout />
         {children}
       </body>
     </html>

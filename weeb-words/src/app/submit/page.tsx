@@ -43,14 +43,15 @@ const SubmitPage: React.FC = () => {
               />
             )}
           </div>
-          <div className="order-2 flex">
-            <form>
+          <div className="order-2 flex ">
+            <form className="flex flex-col gap-4">
               <div className="flex flex-col">
                 <label>Anime</label>
                 <input
                   type="text"
                   placeholder="Enter anime. . ."
-                  className="rounded-lg bg-pink-400 text-black"
+                  className="rounded-lg  text-black"
+                  style={{ background: "var(--input-bg)" }}
                 />
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -59,7 +60,8 @@ const SubmitPage: React.FC = () => {
                   <input
                     type="text"
                     placeholder="Enter first name. . ."
-                    className="rounded-lg bg-pink-400 text-black"
+                    className="rounded-lg  text-black"
+                    style={{ background: "var(--input-bg)" }}
                   />
                 </div>
                 <div className="order-2 flex flex-col">
@@ -67,7 +69,8 @@ const SubmitPage: React.FC = () => {
                   <input
                     type="text"
                     placeholder="Enter last name. . ."
-                    className="rounded-lg bg-pink-400 text-black"
+                    className="rounded-lg  text-black"
+                    style={{ background: "var(--input-bg)" }}
                   />
                 </div>
               </div>
@@ -75,10 +78,11 @@ const SubmitPage: React.FC = () => {
                 <label>Quote</label>
                 <textarea
                   placeholder="Enter quote. . ."
-                  className="rounded-lg border-0 bg-pink-400 text-black"
+                  className="rounded-lg border-0  text-black"
+                  style={{ background: "var(--input-bg)" }}
                 ></textarea>
               </div>
-              <button type="submit">Submit</button>
+              <button type="submit" className="bg-white text-black rounded-lg w-full">Submit</button>
             </form>
           </div>
         </div>
