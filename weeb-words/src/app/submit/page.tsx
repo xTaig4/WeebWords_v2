@@ -14,6 +14,7 @@ const SubmitPage: React.FC = () => {
       const selectedFile = event.target.files[0];
       setFile(selectedFile);
 
+      console.log("has entered the function");
       // Create a preview URL for images
       const fileReader = new FileReader();
       fileReader.onload = () => {
@@ -23,68 +24,99 @@ const SubmitPage: React.FC = () => {
     }
   };
 
+  const handDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    if (event.dataTransfer.files && event.dataTransfer.files[0]) {
+      const droppedFile = event.dataTransfer.files[0];
+      setFile(droppedFile);
+
+      console.log("has entered the function");
+      //Create a preview URL for images
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        setPreviewUrl(fileReader.result as string);
+      };
+      fileReader.readAsDataURL(droppedFile);
+    }
+  };
+
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault(); //prevents the default behavior of the browser
+  };
+
   return (
-    <div className="ml-130">
-      <div className="flex min-h-screen flex-wrap">
-        <div className="grid w-full grid-cols-1 items-center justify-center md:h-auto md:w-3/4 md:grid-cols-2">
-          <div className="order-1 flex w-full flex-col gap-5 md:order-1 md:w-3/4">
-            <h3>Image:</h3>
-            {file?.type.startsWith("image/") ? (
-              <img
-                src={previewUrl}
-                alt="preview"
-                className="h-160 rounded-4xl"
-              ></img>
-            ) : (
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="grid w-full max-w-4xl grid-cols-1 gap-10 p-5 md:grid-cols-2">
+        {/* Left Column: Image */}
+        <div
+          className="flex flex-col items-center justify-center gap-5"
+          onDrop={handDrop}
+          onDragOver={handleDragOver}
+        >
+          <h3 className="text-center text-lg font-semibold">Image:</h3>
+          {previewUrl ? (
+            <img
+            src={previewUrl}
+            alt="preview"
+            className="max-h-180 max-w-full rounded-4xl"
+            />
+          ) : (
+            <input
+              placeholder="Enter image URL or drag and drop image here..."
+              type="text"
+              className="w-full rounded-lg bg-white p-2 text-black"
+              onChange={handleImageChange}
+            />
+          )}
+        </div>
+
+        {/* Right Column: Form */}
+        <div className="flex items-center justify-center">
+          <form className="flex flex-col gap-2 w-90">
+            <div className="flex flex-col">
+              <label>Anime</label>
               <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
+                type="text"
+                placeholder="Enter anime..."
+                className="rounded-lg bg-white p-2 text-black"
+                style={{ background: "var(--input-bg)" }}
               />
-            )}
-          </div>
-          <div className="order-2 flex ">
-            <form className="flex flex-col gap-4">
+            </div>
+            <div className="grid grid-cols-2 gap-2">
               <div className="flex flex-col">
-                <label>Anime</label>
+                <label>First name</label>
                 <input
                   type="text"
-                  placeholder="Enter anime. . ."
-                  className="rounded-lg  text-black"
+                  placeholder="Enter first name..."
+                  className="rounded-lg bg-white p-2 text-black"
                   style={{ background: "var(--input-bg)" }}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="order-1 flex flex-col">
-                  <label>First name</label>
-                  <input
-                    type="text"
-                    placeholder="Enter first name. . ."
-                    className="rounded-lg  text-black"
-                    style={{ background: "var(--input-bg)" }}
-                  />
-                </div>
-                <div className="order-2 flex flex-col">
-                  <label>Last name</label>
-                  <input
-                    type="text"
-                    placeholder="Enter last name. . ."
-                    className="rounded-lg  text-black"
-                    style={{ background: "var(--input-bg)" }}
-                  />
-                </div>
-              </div>
               <div className="flex flex-col">
-                <label>Quote</label>
-                <textarea
-                  placeholder="Enter quote. . ."
-                  className="rounded-lg border-0  text-black"
+                <label>Last name</label>
+                <input
+                  type="text"
+                  placeholder="Enter last name..."
+                  className="rounded-lg bg-white p-2 text-black"
                   style={{ background: "var(--input-bg)" }}
-                ></textarea>
+                />
               </div>
-              <button type="submit" className="bg-white text-black rounded-lg w-full">Submit</button>
-            </form>
-          </div>
+            </div>
+            <div className="flex flex-col">
+              <label>Quote</label>
+              <textarea
+                placeholder="Enter quote..."
+                className="rounded-lg bg-white p-2 text-black"
+                style={{ background: "var(--input-bg)" }}
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="w-full rounded-lg bg-blue-500 p-2 text-white"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </div>

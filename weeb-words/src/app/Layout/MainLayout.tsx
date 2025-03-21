@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 const MainLayout: React.FC = () => {
+  function consolelog() {
+    console.log("Hello");
+  }
   return (
     <div
       className="fixed top-0 bottom-0 flex h-screen w-1/16 flex-col items-center gap-5"
@@ -17,7 +20,8 @@ const MainLayout: React.FC = () => {
             href="/quote"
             className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
             style={{ background: "var(--input-bg)" }}
-          >H</Link>
+          >H
+          </Link>
           <Link
             href="/submit"
             className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"

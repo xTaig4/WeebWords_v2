@@ -10,7 +10,7 @@ const QuotePage: React.FC = () => {
     try {
       const response = await fetch("https://localhost:7028/api/Quotes/Random/QuoteDTO")
       const data = await response.json()
-      setQuote(`${data._Quote} - ${data.lastName} ${data.firstName}`)
+      setQuote(`${data.quote} - ${data.lastName} ${data.firstName}`)
       setImage(data.image)
     } catch (error) {
       console.error("Failed to retreive quote", error)
@@ -34,7 +34,7 @@ const QuotePage: React.FC = () => {
           <img
             src={image}
             alt="Sample"
-            className="h-160 rounded-4xl mt-10"
+            className="max-h-180 rounded-4xl mt-10"
           />
         </div>
       </div>
