@@ -1,58 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import React from "react";
+import usePostQuote from "../Hooks/usePostQuote";
 
 const SubmitPage: React.FC = () => {
-  const [previewUrl, setPreviewUrl] = useState<string | undefined>(
-    undefined,
-  );
-  const [anime, setAnime] = useState<string>("");
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [quote, setQuote] = useState<string>("");
-
-  const PostQuote = async (event: React.FormEvent) => {
-    event.preventDefault();
-    const data = {
-      firstName: firstName,
-      lastName: lastName,
-      quote: quote,
-      image: previewUrl,
-      anime: anime,
-    };
-    try { 
-      const response = await fetch("https://localhost:7028/api/Quotes/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        alert("Submission successful!");
-        // Optionally, reset the form
-        setAnime("");
-        setFirstName("");
-        setLastName("");
-        setQuote("");
-        setPreviewUrl(undefined);
-      } else {
-        alert("Failed to submit. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error submitting data:", error);
-      alert("An error occurred. Please try again.");
-    }
-  };
+  const {
+    postQuoteToApi,
+    imageUrl,
+    setImageUrl,
+    anime,
+    setAnime,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    quote,
+    setQuote,
+  } = usePostQuote("https://localhost:7028/api/Quotes/submit");
 
   const handleImageUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const url = event.target.value;
-    setPreviewUrl(url); // Set the entered URL as the preview URL
+    setImageUrl(event.target.value); // Set the entered URL as the preview URL
   };
 
-  const handDrop = (event: React.DragEvent<HTMLDivElement>) => {
+  const dragDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     if (event.dataTransfer.files && event.dataTransfer.files[0]) {
       const droppedFile = event.dataTransfer.files[0];
@@ -60,7 +31,7 @@ const SubmitPage: React.FC = () => {
       //Create a preview URL for images
       const fileReader = new FileReader();
       fileReader.onload = () => {
-        setPreviewUrl(fileReader.result as string);
+        setImageUrl(fileReader.result as string);
       };
       fileReader.readAsDataURL(droppedFile);
     }
@@ -72,12 +43,12 @@ const SubmitPage: React.FC = () => {
         {/* Left Column: Image */}
         <div
           className="flex flex-col items-center justify-center gap-5"
-          onDrop={handDrop}
+          onDrop={dragDrop}
         >
           <h3 className="text-center text-lg font-semibold">Image:</h3>
-          {previewUrl ? (
+          {imageUrl ? (
             <img
-              src={previewUrl}
+              src={imageUrl}
               alt="preview"
               className="max-h-180 max-w-full rounded-4xl"
             />
@@ -93,7 +64,7 @@ const SubmitPage: React.FC = () => {
 
         {/* Right Column: Form */}
         <div className="flex items-center justify-center">
-          <form className="flex flex-col gap-2 w-90" onSubmit={PostQuote}>
+          <form className="flex flex-col gap-2 w-90" onSubmit={postQuoteToApi}>
             <div className="flex flex-col">
               <label>Anime</label>
               <input
