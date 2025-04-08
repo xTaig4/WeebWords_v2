@@ -17,18 +17,18 @@ const MainLayout: React.FC = () => {
       <div className="flex flex-col items-center gap-10">
         <nav className="mt-5 flex flex-col gap-9 text-black">
           <Link
-            href="/quote"
+            href="/aQuote"
             className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
             style={{ background: "var(--input-bg)" }}
           >H
           </Link>
           <Link
-            href="/submit"
+            href="/aSubmit"
             className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
             style={{ background: "var(--input-bg)" }}
           >S</Link>
           <Link
-            href="#"
+            href="aGallery"
             className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
             style={{ background: "var(--input-bg)" }}
           >G</Link>
