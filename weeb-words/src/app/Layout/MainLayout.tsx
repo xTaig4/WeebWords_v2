@@ -7,6 +7,14 @@ const MainLayout: React.FC = () => {
   function consolelog() {
     console.log("Hello");
   }
+  const links = [
+    { href: "/aQuote", label: "H" },
+    { href: "/aSubmit", label: "S" },
+    { href: "/aGallery", label: "G" },
+    { href: "#", label: "A" },
+    { href: "#", label: "S" },
+  ]
+
   return (
     <div
       className="fixed top-0 bottom-0 flex h-screen w-1/16 flex-col items-center gap-5"
@@ -16,32 +24,16 @@ const MainLayout: React.FC = () => {
       <h2 className="text-3xl mt-3 font-semibold text-sky-400">Quote</h2>
       <div className="flex flex-col items-center gap-10">
         <nav className="mt-5 flex flex-col gap-9 text-black">
-          <Link
-            href="/aQuote"
-            className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
-            style={{ background: "var(--input-bg)" }}
-          >H
-          </Link>
-          <Link
-            href="/aSubmit"
-            className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
-            style={{ background: "var(--input-bg)" }}
-          >S</Link>
-          <Link
-            href="aGallery"
-            className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
-            style={{ background: "var(--input-bg)" }}
-          >G</Link>
-          <Link
-            href="#"
-            className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
-            style={{ background: "var(--input-bg)" }}
-          >A</Link>
-          <Link
-            href="#"
-            className="text-center font-bold my-1 h-10 w-13 cursor-pointer rounded-lg border border-gray-300 p-2"
-            style={{ background: "var(--input-bg)" }}
-          >S</Link>
+          {links.map((link, index) => (
+            <Link
+              key={index}
+              href={link.href}
+              className="text-center font-bold my-1 h-8 w-11 cursor-pointer rounded-lg border border-gray-300 p-2"
+              style={{ background: "var(--input-bg)" }}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </div>
       <div className="flex flex-1 flex-col">

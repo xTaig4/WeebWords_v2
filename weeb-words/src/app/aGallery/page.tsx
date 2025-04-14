@@ -73,7 +73,7 @@ const GalleryPage: React.FC = () => {
       <section className="flex h-full w-full flex-col items-center rounded-lg bg-gray-500 p-10 shadow-md ">
         <h1 className="mb-10 text-4xl text-white font-light">Gallery</h1> 
           <Masonry
-          breakpointCols={{ default: 4, 768: 2, 1024: 3 }}
+          breakpointCols={{ default: 4, 1024: 3, 768: 2, 640: 1 }}
           className="flex gap-4"
           columnClassName="masonry-column space-y-4"
           >
