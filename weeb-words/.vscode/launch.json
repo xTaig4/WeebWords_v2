@@ -1,13 +1,26 @@
 {
     "version": "0.2.0",
     "configurations": [
-      {
+        {
+        "name": "Next.js: Node",
         "type": "node",
         "request": "launch",
-        "name": "Next.js Debug",
         "runtimeExecutable": "npx",
         "runtimeArgs": ["next", "dev"],
         "console": "integratedTerminal",
+        "cwd": "${workspaceFolder}",
+        "internalConsoleOptions": "neverOpen",
+        "sourceMaps": true,
+        "skipFiles": ["<node_internals>/**"]
+      },
+      {
+        "name": "Next.js: Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000", // Ensure this matches your dev server URL
+        "webRoot": "${workspaceFolder}/src",
+        "cwd": "${workspaceFolder}",
+        "sourceMaps": true,
         "skipFiles": ["<node_internals>/**"]
       }
     ]

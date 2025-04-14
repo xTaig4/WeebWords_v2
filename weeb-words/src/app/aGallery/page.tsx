@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
+import Masonry from 'react-masonry-css';
 import QuoteCard from "../Components/quoteCard";
+
 interface Quote {
   id: number;
   firstName: string;
@@ -69,9 +70,13 @@ const GalleryPage: React.FC = () => {
 
   return (
     <div className="mt-25 mr-15 ml-40 bg-gray-900">
-      <section className="jystify-center flex h-full w-full flex-col items-center rounded-lg bg-gray-500 p-10 shadow-md">
-        <h1 className="mb-10 text-4xl font-light">Gallery</h1>
-        <div className="grid grid-cols-4 items-center gap-25">
+      <section className="flex h-full w-full flex-col items-center rounded-lg bg-gray-500 p-10 shadow-md ">
+        <h1 className="mb-10 text-4xl text-white font-light">Gallery</h1> 
+          <Masonry
+          breakpointCols={{ default: 4, 768: 2, 1024: 3 }}
+          className="flex gap-4"
+          columnClassName="masonry-column space-y-4"
+          >
           {quotes.map((Quote) => (
             <QuoteCard
               image={Quote.image}
@@ -79,7 +84,7 @@ const GalleryPage: React.FC = () => {
               name={`${Quote.lastName} ${Quote.firstName}`}
             />
           ))}
-        </div>
+          </Masonry>
       </section>
     </div>
   );
