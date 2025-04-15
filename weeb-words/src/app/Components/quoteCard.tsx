@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 interface QuoteCardProps {
   image: string;
   quote?: string;
@@ -12,12 +14,18 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   name = "Uchiha Itachi",
 }) => {
   return (
-    <div className="rounded-lg bg-gray-800 p-4 shadow-md h-auto w-full hover:scale-105 transition-transform duration-300 ease-in-out ">
-      <article className="flex flex-col items-start justify-center gap-4 text-white text-center">
-        <img className="object-scale-down mx-auto" src={image}></img>
+    <div className="group h-auto w-full rounded-lg bg-gray-800 p-4 shadow-md transition-transform duration-300 ease-in-out hover:scale-105">
+      <article className="flex flex-col items-start justify-center gap-4 text-center text-white">
+        <img className="mx-auto object-scale-down" src={image}></img>
         <div className="w-full">
-          <p className="">{quote}</p>
-          <p className="font-bold">- {name}</p>
+          <p
+            className={`transition-all duration-300 ease-in-out ${
+              quote.length > 120 ? "line-clamp-3 group-hover:line-clamp-none" : ""
+            }`}
+          >
+            {quote}
+          </p>
+          <p className="font-bold mt-2">- {name}</p>
         </div>
       </article>
     </div>
