@@ -24,16 +24,16 @@ Weeb Words is a sleek and minimalist anime quote web app where users can view, f
 
 🛠 Tech Stack
 
-Frontend
+Frontend:
 Next.js (App Router), React, TypeScript
 
-Styling
+Styling:
 TailwindCSS, Responsive Design
 
-State Mgmt
+State Magement:
 React Hooks
 
-Backend API
+Backend API:
 ASP.NET Core (REST), Entity Framework Core
 
 
