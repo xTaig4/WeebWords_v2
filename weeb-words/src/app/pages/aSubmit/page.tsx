@@ -2,7 +2,7 @@
 
 import { use, useState } from "react";
 import React from "react";
-import usePostQuote from "../Hooks/usePostQuote";
+import usePostQuote from "../../Hooks/usePostQuote";
 
 const SubmitPage: React.FC = () => {
   const {
@@ -64,7 +64,7 @@ const SubmitPage: React.FC = () => {
 
         {/* Right Column: Form */}
         <div className="flex items-center justify-center">
-          <form className="flex flex-col gap-2 w-90" onSubmit={postQuoteToApi}>
+          <form className="flex w-90 flex-col gap-2" onSubmit={postQuoteToApi}>
             <div className="flex flex-col">
               <label>Anime</label>
               <input

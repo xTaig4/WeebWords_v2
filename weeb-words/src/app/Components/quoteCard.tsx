@@ -14,18 +14,20 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   name = "Uchiha Itachi",
 }) => {
   return (
-    <div className="group h-auto w-full rounded-lg bg-gray-800 p-4 shadow-md transition-transform duration-300 ease-in-out hover:scale-105">
+    <div className="group h-auto w-full rounded-lg border-1 border-amber-200 p-4 shadow-md transition-transform duration-300 ease-in-out hover:scale-105">
       <article className="flex flex-col items-start justify-center gap-4 text-center text-white">
         <img className="mx-auto object-scale-down" src={image}></img>
         <div className="w-full">
           <p
             className={`transition-all duration-300 ease-in-out ${
-              quote.length > 120 ? "line-clamp-3 group-hover:line-clamp-none" : ""
+              quote.length > 120
+                ? "line-clamp-3 group-hover:line-clamp-none"
+                : ""
             }`}
           >
             {quote}
           </p>
-          <p className="font-bold mt-2">- {name}</p>
+          <p className="mt-2 font-bold">- {name}</p>
         </div>
       </article>
     </div>
