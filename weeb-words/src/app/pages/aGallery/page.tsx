@@ -46,11 +46,11 @@ const GalleryPage: React.FC = () => {
         {
           id: 3,
           image:
-            "https://i.pinimg.com/736x/14/71/08/1471089013dad6ad09d1e46cf6a6b7d8.jpg",
+            "https://i.pinimg.com/1200x/cd/7e/cc/cd7ecc88e2a1190acdc06352ea032f93.jpg",
           _Quote:
-            "Time doesn’t heal anything, it just teaches us how to live with pain.",
-          firstName: "Itachi",
-          lastName: "Uchiha",
+            "A place where someone still thinks about you is a place you can call home.",
+          firstName: "Jiraiya",
+          lastName: "",
         },
         {
           id: 2,
