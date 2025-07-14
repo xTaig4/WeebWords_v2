@@ -1,4 +1,4 @@
-📝 Project Overview: Weeb Words
+## 📝 Project Overview: Weeb Words
 
 Weeb Words is a sleek and minimalist anime quote web app where users can view, filter, and submit inspirational, emotional, or funny quotes from popular anime characters. Designed with a focus on simplicity and speed, it connects to a REST API and offers a dynamic UI built using Next.js and TailwindCSS.
 
@@ -21,9 +21,11 @@ Weeb Words is a sleek and minimalist anime quote web app where users can view, f
 
 🔌 Connected to a RESTful API (ASP.NET backend)
 
+## Screenshots
 
+![Screenshot](weeb-words/Screenshots/QuoteWeb.JPG)
 
-🛠 Tech Stack
+## 🛠 Tech Stack
 
 Frontend:
 Next.js (App Router), React, TypeScript
