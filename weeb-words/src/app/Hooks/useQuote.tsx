@@ -12,7 +12,7 @@ export const useQuote = (apiService: string) => {
   const fetchQuote = async () => {
     try {
       const data = await QuoteService.fetchQuoteFromApi(apiService);
-      setQuote(`${data.quote} - ${data.lastName} ${data.firstName}`);
+      setQuote(`${data._Quote} - ${data.lastName} ${data.firstName}`);
       setImage(data.image);
     } catch (error) {
       console.error("Failed to retrieve quote", error);
@@ -20,6 +20,6 @@ export const useQuote = (apiService: string) => {
   };
 
   return { quote, image, fetchQuote };
-}
+};
 
 export default useQuote;
