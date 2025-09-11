@@ -26,9 +26,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ left, width, height }) => {
   return (
     <div
       className={`justify-startfixed top-0 right-0 flex items-center left-${left} w-${width} h-15 border-b-1 border-amber-200`}
-      style={{ background: "var(--background)" }}
     >
-      <form className="ml-28 flex flex-row gap-2 sm:ml-4 md:ml-8">
+      <form className="ml-8 flex flex-row gap-2 sm:ml-6 lg:ml-28">
         <input
           type="text"
           value={input}

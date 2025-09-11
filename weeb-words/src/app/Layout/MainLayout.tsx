@@ -13,10 +13,7 @@ const MainLayout: React.FC = () => {
   ];
 
   return (
-    <div
-      className="fixed top-0 bottom-0 flex h-screen w-1/24 flex-col items-center gap-5 border-r-1 border-amber-200"
-      style={{ background: "var(--background)" }}
-    >
+    <div className="fixed top-0 bottom-0 flex h-screen w-1/24 flex-col items-center gap-5 border-r-1 border-amber-200">
       {/* SideBar */}
       <h2 className="mt-4 text-2xl font-semibold text-sky-400">Q</h2>
       <div className="flex flex-col items-center gap-10">
