@@ -29,19 +29,19 @@ const GalleryPage: React.FC = () => {
         {
           id: 1,
           image:
+            "https://i.pinimg.com/736x/70/53/61/705361087e4d24fbdb0b47fa990826d6.jpg",
+          _Quote: "Believe it!",
+          firstName: "Naruto",
+          lastName: "Uzumaki",
+        },
+        {
+          id: 2,
+          image:
             "https://i.pinimg.com/736x/22/89/65/228965cc790b4f823fd02822d8fc69e2.jpg",
           _Quote:
             "Its not about winning or losing! its about me taking you on right here, right now!",
           firstName: "Mumen Rider",
           lastName: "",
-        },
-        {
-          id: 2,
-          image:
-            "https://i.pinimg.com/736x/e8/84/be/e884bee2271771717e72e2450e3e0f0c.jpg",
-          _Quote: "A dropout will beat a genius through hard work.",
-          firstName: "Lee",
-          lastName: "Rock",
         },
         {
           id: 3,
@@ -53,12 +53,20 @@ const GalleryPage: React.FC = () => {
           lastName: "",
         },
         {
-          id: 2,
+          id: 4,
           image:
-            "https://i.pinimg.com/736x/99/f6/ed/99f6ed76292397628a35d5ab77d6f543.jpg",
-          _Quote: "I never quite realized... how beautiful this world is",
-          firstName: "A2",
-          lastName: "",
+            "https://i.pinimg.com/736x/e8/84/be/e884bee2271771717e72e2450e3e0f0c.jpg",
+          _Quote: "A dropout will beat a genius through hard work.",
+          firstName: "Lee",
+          lastName: "Rock",
+        },
+        {
+          id: 5,
+          image:
+            "https://i.pinimg.com/736x/37/37/56/3737564dea042377aedd570f79e227a0.jpg",
+          _Quote: "Study hard you little shit!",
+          firstName: "Katsuki",
+          lastName: "Bakugo",
         },
       ];
       setQuotes(dummyQuotes);
@@ -71,7 +79,7 @@ const GalleryPage: React.FC = () => {
 
   return (
     <div>
-      <section className="mt-20 mr-10 ml-30 flex flex-col items-center rounded-lg p-10">
+      <section className="ml-0 flex flex-col items-center rounded-lg p-10 sm:p-8 lg:ml-20">
         <Masonry
           breakpointCols={{ default: 4, 1024: 3, 768: 2, 640: 1 }}
           className="flex gap-4"

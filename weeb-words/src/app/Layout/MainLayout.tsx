@@ -33,30 +33,6 @@ const MainLayout: React.FC = () => {
           ))}
         </nav>
       </div>
-      <div className="flex flex-1 flex-col">
-        {/* Top search bar */}
-        <div
-          className="fixed top-0 right-0 left-1/24 w-full border-b-1 border-amber-200 p-5"
-          style={{ background: "var(--background)" }}
-        >
-          <div className="flex gap-3">
-            <label>Anime</label>
-            <input
-              type="text"
-              placeholder="anime..."
-              className="w-4/10 rounded-lg text-black"
-              style={{ background: "var(--input-bg)" }}
-            ></input>
-            <label>Character</label>
-            <input
-              type="text"
-              placeholder="character..."
-              className="w-4/10 rounded-lg text-black"
-              style={{ background: "var(--input-bg)" }}
-            ></input>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
